@@ -100,6 +100,11 @@ animations to be run when switching to or switching out of the page.
       var oldPage = this._valueToItem(this._prevSelected) || false;
       this._prevSelected = selected;
 
+      // probably a stupid & naive fix : do not do anything if there is no selectedPage
+      if (!selectedPage) {
+        return;
+      }
+
       // on initial load and if animateInitialSelection is negated, simply display selectedPage.
       if (!oldPage && !this.animateInitialSelection) {
         this._completeSelectedChanged();
